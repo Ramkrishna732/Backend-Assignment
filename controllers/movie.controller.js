@@ -1,8 +1,8 @@
 const Movie = require('../models/movie.model.js');
 
-// Create and Save a new Note
+
 exports.create = (req, res) => {
-    // Validate request
+    
     if(!req.body.name) {
         return res.status(400).send({
             message: "Movie name can not be empty"
@@ -19,14 +19,14 @@ exports.create = (req, res) => {
         });
     }
 
-    // Create a Note
+    
     const movie = new Movie({
         name: req.body.name, 
         img: req.body.img,
         summary: req.body.summary
     });
 
-    // Save Note in the database
+    
     movie.save()
     .then(data => {
         res.send(data);
@@ -37,7 +37,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve and return all notes from the database.
+
 exports.findAll = (req, res) => {
     Movie.find()
     .then(movie => {
@@ -49,7 +49,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single movie with a movieId
+
 exports.findOne = (req, res) => {
     Movie.findById(req.params.movieId)
     .then(movie => {
@@ -71,16 +71,16 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update a note identified by the movieId in the request
+
 exports.update = (req, res) => {
-    // Validate Request
+    
     if(!req.body.summary) {
         return res.status(400).send({
             message: "movie content can not be empty"
         });
     }
 
-    // Find note and update it with the request body
+    
     Movie.findByIdAndUpdate(req.params.movieId, {
         name: req.body.name || "Untitled Note",
         img:req.body.img,
@@ -105,7 +105,7 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a note with the specified noteId in the request
+
 exports.delete = (req, res) => {
     Movie.findByIdAndRemove(req.params.movieId)
     .then(movie => {
