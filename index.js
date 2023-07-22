@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
-
+//connecting to database
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 
@@ -23,7 +23,7 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-
+//making server
 app.get('/', (req, res) => {
     res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
 });

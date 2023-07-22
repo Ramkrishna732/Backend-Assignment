@@ -1,6 +1,7 @@
 const Movie = require('../models/movie.model.js');
 
 
+//creating new data
 exports.create = (req, res) => {
     
     if(!req.body.name) {
@@ -37,7 +38,7 @@ exports.create = (req, res) => {
     });
 };
 
-
+//retriving data
 exports.findAll = (req, res) => {
     Movie.find()
     .then(movie => {
@@ -71,7 +72,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-
+//updating data
 exports.update = (req, res) => {
     
     if(!req.body.summary) {
@@ -105,6 +106,7 @@ exports.update = (req, res) => {
     });
 };
 
+//deleting data
 
 exports.delete = (req, res) => {
     Movie.findByIdAndRemove(req.params.movieId)
