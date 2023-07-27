@@ -38,7 +38,7 @@ exports.create = (req, res) => {
     });
 };
 
-//retriving data
+//retriving data using get
 exports.findAll = (req, res) => {
     Movie.find()
     .then(movie => {
@@ -72,7 +72,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-//updating data
+//updating data 
 exports.update = (req, res) => {
     
     if(!req.body.summary) {

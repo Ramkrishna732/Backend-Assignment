@@ -2,10 +2,10 @@ module.exports = (app) => {
     const movie = require('../controllers/movie.controller.js');
 
     
-    //route for creating data
+    //route for creating data.
     app.post('/movie', movie.create);
 
-    //route for retriving data
+    //route for retriving data.
     app.get('/movie', movie.findAll);
 
     //route for retriving data
